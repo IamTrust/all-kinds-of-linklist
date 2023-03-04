@@ -274,7 +274,7 @@ public boolean isPalindrome(ListNode head) {
 
 判断链表是否有环 - 难度：`easy`
 
-![](../images/判断链表是否有环题目描述.png)
+![](https://pictures-1312398124.cos.ap-guangzhou.myqcloud.com/20230304133431.png)
 
 1. 朴素做法
 
@@ -282,7 +282,7 @@ public boolean isPalindrome(ListNode head) {
 
 2. 能否用 O(1) 空间解决？**快慢指针**
 
-   ![](../images/快慢指针判断链表是否有环.png)
+   ![](https://pictures-1312398124.cos.ap-guangzhou.myqcloud.com/快慢指针判断链表的环.drawio.png)
 
    ```java
    public boolean hasCycle(ListNode head) {
