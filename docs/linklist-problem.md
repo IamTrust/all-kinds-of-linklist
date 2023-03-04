@@ -147,7 +147,7 @@ public boolean isPalindrome(ListNode head) {
 
    ```java
    public ListNode listPartition(ListNode head, int pivot) {
-     	List<ListNode> list = new ArrayList<>();
+       List<ListNode> list = new ArrayList<>();
        ListNode p = head;
        while (p != null) {
          list.add(p);
@@ -383,18 +383,18 @@ public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
     首先找到两个链表各自的入环节点，从任意一个入环节点出发继续往下走，如果走的过程中没有遇到了另一个入环节点，那么就是情况一，不相交。如果遇到了，那么就是情况三，此时相交节点返回任意一个入环节点均可。
 
-    ```java
-    /**
-     * @param head1 链表1的头节点
-     * @param head2 链表2的头节点
-     * @param loop1 链表1的入环节点，可通过最上面的方法求得
-     * @param loop2 链表2的入环节点，可通过最上面的方法求得
-     */
-    public ListNode bothLoop(ListNode head1,
-                         ListNode head2,
-                         ListNode loop1,
-                         ListNode loop2) {
-      	if (loop1 == loop2) {
+```java
+/**
+* @param head1 链表1的头节点
+* @param head2 链表2的头节点
+* @param loop1 链表1的入环节点，可通过最上面的方法求得
+* @param loop2 链表2的入环节点，可通过最上面的方法求得
+*/
+public ListNode bothLoop(ListNode head1,
+		 	 ListNode head2,
+		 	 ListNode loop1,
+		 	 ListNode loop2) {
+	if (loop1 == loop2) {
 		// 情况二: 等价于无环链表求相交节点, 只不过把入环节点作为终止节点
 		ListNode pa = head1, pb = head2;
 		int lenA = 1, lenB = 1;
@@ -402,12 +402,12 @@ public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 			lenA++;
 			pa = pa.next;
 		}
-          	while (pb != loop1) {
+		while (pb != loop1) {
 			lenB++;
 			pb = pb.next;
-            	}
-          	// 让 head1 较长, head2 较短
-          	if (lenB > lenA) {
+		}
+		// 让 head1 较长, head2 较短
+		if (lenB > lenA) {
 			ListNode tmp = head1;
 			head1 = head2;
 			head2 = tmp;
@@ -415,33 +415,33 @@ public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 			int tmp2 = lenA;
 			lenA = lenB;
 			lenB = tmp2;
-            	}
-          	// 较长的 head1 从头开始先走 lenA - lenB 步
-          	int step = 0;
-          	pa = head1;
-          	while (step < lenA - lenB) {
+		}
+		// 较长的 head1 从头开始先走 lenA - lenB 步
+		int step = 0;
+		pa = head1;
+		while (step < lenA - lenB) {
 			pa = pa.next;
 			step++;
 		}
-          	// 之后两个一起走, 相遇时即为相交入口, 返回相交入口
-          	pb = head2;
-          	while (pa != pb) {
+		// 之后两个一起走, 相遇时即为相交入口, 返回相交入口
+		pb = head2;
+		while (pa != pb) {
 			pa = pa.next;
 			pb = pb.next;
-            	}
-          	return pa;
-        }
-      	// 从 loop1 开始走下去
-      	ListNode p = loop1;
-      	while (p.next != loop1 && p != loop2) {
-          	p = p.next;
-        }
-      	// 循环结束，p.next == loop1 || p == loop2
-      	if (p.next == loop1)
-          	// 情况一: 没有相交节点
-          	return null;
-      	// 情况三: 返回任意一个入环节点即可
-      	return loop1;
-    }
-    ```
+		}
+		return pa;
+	}
+	// 从 loop1 开始走下去
+	ListNode p = loop1;
+	while (p.next != loop1 && p != loop2) {
+		p = p.next;
+	}
+	// 循环结束，p.next == loop1 || p == loop2
+	if (p.next == loop1)
+		// 情况一: 没有相交节点
+		return null;
+	// 情况三: 返回任意一个入环节点即可
+	return loop1;
+}
+```
 
