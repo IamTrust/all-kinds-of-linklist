@@ -135,7 +135,7 @@ public boolean isPalindrome(ListNode head) {
 
 ```
         单链表: 3 -> 2 -> 8 -> 5 -> 10 -> 5
-	          k: 5 
+	    k: 5 
 ------------------------------------------
           结果: 3 -> 2 -> 5 -> 5 -> 10 -> 8
 这个结果也是对的: 2 -> 3 -> 5 -> 5 -> 8 -> 10
@@ -395,40 +395,40 @@ public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
                          ListNode loop1,
                          ListNode loop2) {
       	if (loop1 == loop2) {
-          	// 情况二: 等价于无环链表求相交节点, 只不过把入环节点作为终止节点
-          	ListNode pa = head1, pb = head2;
-          	int lenA = 1, lenB = 1;
-          	while (pa != loop1) {
-              	lenA++;
-              	pa = pa.next;
-            }
+		// 情况二: 等价于无环链表求相交节点, 只不过把入环节点作为终止节点
+		ListNode pa = head1, pb = head2;
+		int lenA = 1, lenB = 1;
+		while (pa != loop1) {
+			lenA++;
+			pa = pa.next;
+		}
           	while (pb != loop1) {
-              	lenB++;
-              	pb = pb.next;
-            }
+			lenB++;
+			pb = pb.next;
+            	}
           	// 让 head1 较长, head2 较短
           	if (lenB > lenA) {
-                ListNode tmp = head1;
-                head1 = head2;
-                head2 = tmp;
-    
-                int tmp2 = lenA;
-                lenA = lenB;
-                lenB = tmp2;
-            }
+			ListNode tmp = head1;
+			head1 = head2;
+			head2 = tmp;
+
+			int tmp2 = lenA;
+			lenA = lenB;
+			lenB = tmp2;
+            	}
           	// 较长的 head1 从头开始先走 lenA - lenB 步
           	int step = 0;
           	pa = head1;
           	while (step < lenA - lenB) {
-              	pa = pa.next;
-              	step++;
-            }
+			pa = pa.next;
+			step++;
+		}
           	// 之后两个一起走, 相遇时即为相交入口, 返回相交入口
           	pb = head2;
           	while (pa != pb) {
-              	pa = pa.next;
-              	pb = pb.next;
-            }
+			pa = pa.next;
+			pb = pb.next;
+            	}
           	return pa;
         }
       	// 从 loop1 开始走下去
