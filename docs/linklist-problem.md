@@ -49,7 +49,14 @@
    }
    ```
 
-进阶：找出链表的倒数第 $n$ 个节点。
+进阶：找出链表的倒数第 $k$ 个节点。
+![](../images/链表倒数第k个节点题目描述.png)
+思考：能否只遍历一次链表解决？难度：`easy`
+```java
+public ListNode getKthFromEnd(ListNode head, int k) {
+
+}
+```
 
 
 
