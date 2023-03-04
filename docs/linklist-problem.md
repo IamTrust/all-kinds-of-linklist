@@ -264,8 +264,8 @@ public boolean isPalindrome(ListNode head) {
            if (oldNxt != null) newNode.next = oldNxt.next;
            p = oldNxt;
          } 
-       	// 注意这里把旧链表的地址改了但没改回来
-       	// 给 oj 平台会判错，需要把旧链表的各节点地址改回来
+       	 // 注意这里把旧链表的地址改了但没改回来
+       	 // 给 oj 平台会判错，需要把旧链表的各节点地址改回来
          return head.next;
      }
      ```
